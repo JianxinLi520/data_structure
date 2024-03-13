@@ -11,8 +11,8 @@ SeqList InitList(){
     return seqList;
 }
 
-int ListLength(SeqList *list){
-    return list->length;
+int ListLength(SeqList list){
+    return list.length;
 }
 
 DataType GetNode(SeqList *list, int index){

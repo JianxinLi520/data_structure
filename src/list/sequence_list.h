@@ -6,9 +6,10 @@
 #define SEQUENCE_LIST_H
 
 #define ListSize 100
+
 typedef int DataType;
 
-typedef struct {
+typedef struct sequence_list{
     DataType data[ListSize];
     int length;
 }SeqList;
@@ -26,7 +27,7 @@ SeqList InitList();
  *
  * @return
  */
-int ListLength(SeqList *list);
+int ListLength(SeqList list);
 
 /**
  * 获取表中第i个元素

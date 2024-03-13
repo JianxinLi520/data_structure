@@ -5,7 +5,7 @@
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 
-typedef int DataType;
+typedef char DataType;
 
 /**
  * 结点类型定义
@@ -17,19 +17,26 @@ typedef struct node{
     struct node *next;
 }ListNode;
 
-typedef ListNode *LinkedList;
+typedef ListNode LinkedList;
+
+/**
+ * 创建一个单链表
+ *
+ * @return
+ */
+LinkedList CreateList();
 
 /**
  * 头插法
  * @return
  */
-LinkedList CreateListF();
+void InsertListF(LinkedList list, DataType data);
 
 /**
  * 尾插法
  * @return
  */
-LinkedList CreateListR();
+void InsertListR(LinkedList list, DataType data);
 
 /**
  * 按下标查找
