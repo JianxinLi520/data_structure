@@ -5,7 +5,7 @@
 #ifndef SEQUENCE_LIST_H
 #define SEQUENCE_LIST_H
 
-#define ListSize 100
+#define ListSize 10
 
 typedef int DataType;
 
@@ -50,6 +50,14 @@ DataType GetNode(SeqList *list, int index);
 int LocateNode(SeqList *list, DataType value);
 
 /**
+ * 直接插入
+ *
+ * @param list
+ * @param value
+ */
+void InsertList(SeqList *list, DataType value);
+
+/**
  * 插入
  *
  *      在表的第index元素之前插入一个值为x的新元素
@@ -58,7 +66,7 @@ int LocateNode(SeqList *list, DataType value);
  * @param index
  * @param value
  */
-void InsertList(SeqList *list, int index, DataType value);
+void InsertListByIndex(SeqList list, int index, DataType value);
 
 /**
  * 删除表的第i个元素
@@ -66,7 +74,14 @@ void InsertList(SeqList *list, int index, DataType value);
  * @param list
  * @param index
  */
-void DeleteList(SeqList *list, int index);
+void DeleteList(SeqList list, int index);
+
+/**
+ * 展示列表
+ *
+ * @param list
+ */
+void ShowList(SeqList list);
 
 /**
  * 逆置表

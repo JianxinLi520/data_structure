@@ -34,20 +34,34 @@ int LocateNode(SeqList *list, DataType value){
     return index;
 }
 
-void InsertList(SeqList *list, int index, DataType value){
-    if (index >= list->length){
-        list->length += 1;
-        list->data[index] = value;
+void InsertList(SeqList *list, DataType value){
+    list->data[list->length] = value;
+    list->length++;
+}
+
+void InsertListByIndex(SeqList list, int index, DataType value){
+    if (index >= list.length){
+        list.length += 1;
+        list.data[index] = value;
     } else {
-        for (int i=list->length;i>index;i--){
-            list->data[i] = list->data[i-1];
+        for (int i=list.length;i>index;i--){
+            list.data[i] = list.data[i-1];
         }
-        list->data[index] = value;
+        list.data[index] = value;
     }
 }
 
-void DeleteList(SeqList *list, int index){
-    for (int i=index;i<list->length;i++){
-        list->data[i] = list->data[i+1];
+void DeleteList(SeqList list, int index){
+    for (int i=index;i<list.length;i++){
+        list.data[i] = list.data[i+1];
     }
+}
+
+void ShowList(SeqList list){
+    for(int i=0; i<list.length; i++){
+        printf("[");
+        printf("%d", list.data[i]);
+        printf("] ");
+    }
+    printf("\n");
 }
