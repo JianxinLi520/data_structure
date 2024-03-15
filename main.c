@@ -17,7 +17,10 @@ const char* sqe_list_menu[] = {"返回顺序表数量\n","在列表尾部插入�
 void sqe_list_menu_fun();
 
 int main() {
-    sqe_list_menu_fun();
+    SeqList list = InitList();
+    InsertList(&list, 1111);
+    printf("%d", ListLength(list));
+    printf("%d", GetNodeByIndex(list, 0));
     return 0;
 }
 
@@ -75,12 +78,12 @@ void sqe_list_menu_fun(){
                 scanf("%d", &index);
                 printf("请输入插入值：\n");
                 scanf("%d", &value);
-                InsertListByIndex(seqList, index, value);
+                InsertListByIndex(&seqList, index, value);
                 break;
             case 3:
                 printf("请输入元素位置：\n");
                 scanf("%d", &index);
-                DeleteList(seqList, index);
+                DeleteListByIndex(&seqList, index);
                 break;
         }
         ShowList(seqList);

@@ -1,6 +1,23 @@
-//
-// 顺序表
-//
+/**
+ * 顺序表
+ *
+ * 1.初始化顺序表
+ * 2.插入
+ * 2.1.直接插入
+ * 2.2.按位插入
+ * 3.删除
+ * 3.1.按位删除
+ * 3.2.按元素删除
+ * 4.查找
+ * 5.修改
+ * 5.1.按位修改
+ * 5.2.按元素修改
+ * 6.逆置
+ * 7.排序
+ * 8.最大值
+ * 9.最小指
+ * 10.获取表长
+ */
 
 #ifndef SEQUENCE_LIST_H
 #define SEQUENCE_LIST_H
@@ -15,7 +32,7 @@ typedef struct sequence_list{
 }SeqList;
 
 /**
- * 构造一个空的线性表
+ * 初始化顺序表
  *
  * @param list
  * @return
@@ -36,7 +53,7 @@ int ListLength(SeqList list);
  * @param index
  * @return
  */
-DataType GetNode(SeqList *list, int index);
+DataType GetNodeByIndex(SeqList list, int index);
 
 /**
  * 按值查找
@@ -47,7 +64,7 @@ DataType GetNode(SeqList *list, int index);
  * @param value
  * @return
  */
-int LocateNode(SeqList *list, DataType value);
+int GetNodeByData(SeqList list, DataType value);
 
 /**
  * 直接插入
@@ -58,7 +75,7 @@ int LocateNode(SeqList *list, DataType value);
 void InsertList(SeqList *list, DataType value);
 
 /**
- * 插入
+ * 按位插入
  *
  *      在表的第index元素之前插入一个值为x的新元素
  *
@@ -66,7 +83,7 @@ void InsertList(SeqList *list, DataType value);
  * @param index
  * @param value
  */
-void InsertListByIndex(SeqList list, int index, DataType value);
+void InsertListByIndex(SeqList *list, int index, DataType value);
 
 /**
  * 删除表的第i个元素
@@ -74,7 +91,32 @@ void InsertListByIndex(SeqList list, int index, DataType value);
  * @param list
  * @param index
  */
-void DeleteList(SeqList list, int index);
+void DeleteListByIndex(SeqList *list, int index);
+
+/**
+ * 删除指定元素
+ * @param list
+ * @param data
+ */
+void DeleteListByData(SeqList *list, DataType data);
+
+/**
+ * 按下标修改
+ *
+ * @param list
+ * @param index
+ * @param data
+ */
+void UpdateListByIndex(SeqList *list, int index, DataType data);
+
+/**
+ * 按元素修改
+ *
+ * @param list
+ * @param oldData
+ * @param newData
+ */
+void UpdateListByData(SeqList *list, DataType oldData, DataType newData);
 
 /**
  * 展示列表
@@ -91,14 +133,27 @@ void ShowList(SeqList list);
 void Converts(SeqList *list);
 
 /**
- * 找出表的最大最小值
+ * 找出表的最大值
+ *
  * @param list
- * @param max
- * @param min
- * @param maxIndex
- * @param minIndex
+ * @return
  */
-void MaxMin(SeqList *list, DataType *max, DataType *min, int *maxIndex, int *minIndex);
+DataType Max(SeqList list);
+
+/**
+ * 找出表的最小值
+ *
+ * @param list
+ * @return
+ */
+DataType Min(SeqList list);
+
+/**
+ * 排序
+ *
+ * @param list
+ */
+void Sort(SeqList *list);
 
 
 #endif //SEQUENCE_LIST_H
