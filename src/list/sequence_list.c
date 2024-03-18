@@ -99,7 +99,7 @@ void ShowList(SeqList list){
 
 void Converts(SeqList *list){
     DataType temp;
-    for (int i = 0; i <= list->length % 2; i++) {
+    for (int i = 0; i <= list->length / 2; i++) {
         temp = list->data[i];
         list->data[i] = list->data[list->length - i];
         list->data[list->length - i] = temp;
