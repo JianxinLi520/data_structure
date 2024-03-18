@@ -32,18 +32,22 @@ SequenceListMenu InitSequenceListMenu(){
 void ShowSequenceListMenu(SequenceListMenu sequenceListMenu){
     PrintLine();
     printf("%s", "顺序表：\n");
-    for (int i = 0; i < sequenceListMenu.menuCount; i++) {
+    for (int i = 1; i < sequenceListMenu.menuCount; i++) {
         printf("%d.%s \n", i, sequenceListMenu.functionName[i]);
     }
     printf("\n");
 }
 
-void SelectFunction(){
-    SeqList seqList;
+void SelectFunction(SequenceListMenu sequenceListMenu){
+    SeqList seqList = InitList();
     for (;;) {
         system("clear");
+        ShowSequenceListMenu(sequenceListMenu);
         PrintLine();
-        printf("%s", "请选择以上功能：");
+        printf("当前顺序表：");
+        ShowList(seqList);
+        PrintLine();
+        printf("%s", "请选择以上功能(999退出)：");
         int selectFunction;
         scanf("%d", &selectFunction);
         if (selectFunction == 999){
@@ -53,31 +57,34 @@ void SelectFunction(){
             printf("输入错误");
         }
         int index;
-        int oldIndex;
         DataType data;
+        int oldIndex;
+        DataType oldData;
         switch (selectFunction) {
-            case 0:
-                seqList = InitList();
-                break;
             case 1:
+                // 获取顺序表长度
                 printf("%d", ListLength(seqList));
                 break;
             case 2:
+                // 根据下标获取元素
                 printf("请输入下标：");
                 scanf("%d", &index);
                 printf("%d", GetNodeByIndex(seqList, index));
                 break;
             case 3:
+                // 根据元素获取下标
                 printf("请输入元素：");
                 scanf("%d", &data);
                 printf("%d", GetNodeByData(seqList, data));
                 break;
             case 4:
+                // 直接插入
                 printf("请输入元素：");
                 scanf("%d", &data);
                 InsertList(&seqList, data);
                 break;
             case 5:
+                // 按位置插入
                 printf("请输入下标：");
                 scanf("%d", &index);
                 printf("\n");
@@ -86,32 +93,55 @@ void SelectFunction(){
                 InsertListByIndex(&seqList, index, data);
                 break;
             case 6:
-                printf("%d", ListLength(seqList));
+                // 按下标删除
+                printf("请输入下标：");
+                scanf("%d", &index);
+                DeleteListByIndex(&seqList, index);
                 break;
             case 7:
-                printf("%d", ListLength(seqList));
+                // 按元素删除
+                printf("请输入元素：");
+                scanf("%d", &data);
+                DeleteListByData(&seqList, data);
                 break;
             case 8:
-                printf("%d", ListLength(seqList));
+                // 按下标修改
+                printf("请输入下标：");
+                scanf("%d", &index);
+                printf("请输入修改后的元素：");
+                scanf("%d", &data);
+                UpdateListByIndex(&seqList, index, data);
                 break;
             case 9:
-                printf("%d", ListLength(seqList));
+                // 按元素修改
+                printf("请输入修改前的元素：");
+                scanf("%d", &oldData);
+                printf("请输入修改后的元素：");
+                scanf("%d", &data);
+                UpdateListByData(&seqList, oldData, data);
                 break;
             case 10:
+                // 显示列表
                 ShowList(seqList);
                 break;
             case 11:
-                printf("%d", ListLength(seqList));
+                // 逆置表
+                Converts(&seqList);
                 break;
             case 12:
-                printf("%d", ListLength(seqList));
+                // 获取最大值
+                printf("%d", Max(seqList));
                 break;
             case 13:
-                printf("%d", ListLength(seqList));
+                // 获取最小值
+                printf("%d", Min(seqList));
                 break;
             case 14:
-                printf("%d", ListLength(seqList));
+                // 排序
+                Sort(&seqList);
                 break;
         }
+        printf("\n 输入y继续执行其他功能。 \n");
+        while (getchar() != 'y');
     }
 }

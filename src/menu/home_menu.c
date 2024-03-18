@@ -15,6 +15,7 @@ const char* type[] = {"顺序表", "单链表", "双向链表"};
 
 
 void HomeMenu(){
+    system("clear");
     printf("%s", LINE);
     for (int i=0; i<=ARRAY_LENGTH(type) - 1; i++){
         printf("%d.%s \n", i, type[i]);
@@ -40,7 +41,7 @@ void HomeMenu(){
         case 0: {
             SequenceListMenu seqMenu = InitSequenceListMenu();
             ShowSequenceListMenu(seqMenu);
-            SelectFunction();
+            SelectFunction(seqMenu);
         }
     }
 

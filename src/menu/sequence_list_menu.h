@@ -36,7 +36,7 @@ void SelectSequenceListMenu(int index);
 /**
  * 选择功能
  */
-void SelectFunction();
+void SelectFunction(SequenceListMenu sequenceListMenu);
 
 
 #endif //DATA_STRUCTURE_SEQUENCE_LIST_MENU_H
