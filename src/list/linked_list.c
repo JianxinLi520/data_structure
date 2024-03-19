@@ -1,20 +1,30 @@
-//
-// Created by li on 2024/3/13.
-//
-
 #include <stdlib.h>
+#include <stdio.h>
+
 #include "linked_list.h"
 
-LinkedList CreateList(){
-    LinkedList head;
-    return head;
+Node* create(DataType data){
+    Node* node = (Node *) malloc(sizeof(Node));
+    node->data = data;
+    node->next = NULL;
+    return node;
 }
 
-
-void InsertListF(LinkedList list, DataType data){
-    ListNode *p;
-    p = (ListNode *)malloc(sizeof(ListNode));
-    p->data=data;
-    p->next=list.next;
-    list.next=p;
+/**
+ * 为什么使用Node** 而不是使用Node*
+ *
+ *      Node* 传过来的是Node对象的指针，是值传递，无法对其调用者进行修改
+ *      Node** 传过来的是Node对象指针的指针，所以可以通过指针对应的内存进行修改
+ * @param head
+ * @param data
+ */
+void insert_head(Node** head, DataType data){
+    Node* node = (Node *) malloc(sizeof(Node));
+    if (node == NULL){
+        printf("Memory allocation failed!\n");
+        return;
+    }
+    node->data = data;
+    node->next = *head;
+    *head = node;
 }

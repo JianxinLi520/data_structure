@@ -5,72 +5,159 @@
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 
-typedef char DataType;
+typedef int DataType;
 
 /**
  * 结点类型定义
  */
 typedef struct node{
     // 数据域
-    DataType data;
+    int data;
     // 指针域
     struct node *next;
-}ListNode;
-
-typedef ListNode LinkedList;
+}Node;
 
 /**
- * 创建一个单链表
+ * 创建单链表
  *
+ * @param data
  * @return
  */
-LinkedList CreateList();
+Node* create(DataType data);
 
 /**
  * 头插法
- * @return
+ *
+ * @param head
+ * @param data
  */
-void InsertListF(LinkedList list, DataType data);
+void insert_head(Node** head, DataType data);
 
 /**
  * 尾插法
- * @return
+ *
+ * @param list
+ * @param data
  */
-void InsertListR(LinkedList list, DataType data);
+void insert_tail(Node* list, DataType data);
+
+/**
+ * 按下标插入
+ *
+ * @param list
+ * @param data
+ * @param index
+ */
+void insert_by_index(Node *list, DataType data, int index);
+
+/**
+ * 删除头节点
+ *
+ * @param list
+ */
+void delete_head(Node *list);
+
+/**
+ * 删除尾节点
+ *
+ * @param list
+ */
+void delete_tail(Node *list);
+
+/**
+ * 根据下标删除
+ *
+ * @param list
+ * @param index
+ */
+void delete_by_index(Node *list, int index);
+
+/**
+ * 根据值删除
+ *
+ * @param list
+ * @param index
+ */
+void delete_by_data(Node *list, DataType index);
 
 /**
  * 按下标查找
  *
- * @param linkedList
+ * @param list
  * @param index
  * @return
  */
-ListNode GetNodeByIndex(LinkedList linkedList, int index);
+Node get_node_by_index(Node list, int index);
 
 /**
  * 按值查找
  *
- * @param linkedList
+ * @param list
  * @param value
  * @return
  */
-ListNode GetNodeByValue(LinkedList linkedList, DataType value);
+Node get_node_by_value(Node list, DataType value);
 
 /**
- * 插入运算
+ * 判断指定值是否存在
  *
- * @param linkedList
- * @param index
+ * @param list
  * @param value
+ * @return
  */
-void InsertList(LinkedList linkedList, int index, DataType value);
+_Bool contain(Node list, DataType value);
 
 /**
- * 删除运输
+ * 反转链表
  *
- * @param linkedList
- * @param index
+ * @param list
  */
-void DeleteList(LinkedList linkedList, int index);
+void converts(Node *list);
+
+/**
+ * 合并两个链表
+ *
+ * @param one
+ * @param two
+ * @return
+ */
+Node merge(Node one, Node two);
+
+/**
+ * 获取链表长度
+ *
+ * @param list
+ * @return
+ */
+int length(Node list);
+
+/**
+ * 判断链表是否为空
+ *
+ * @param list
+ * @return
+ */
+_Bool is_empty(Node list);
+
+/**
+ * 删除重复元素
+ *
+ * @param list
+ */
+void remove_duplicate(Node list);
+
+/**
+ * 排序
+ *
+ * @param list
+ */
+void sort(Node *list);
+
+/**
+ * 展示单链表
+ *
+ * @param list
+ */
+void show_list(Node list);
 
 #endif //LINKED_LIST_H
