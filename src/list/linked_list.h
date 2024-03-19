@@ -55,14 +55,14 @@ void insert_by_index(Node *list, DataType data, int index);
  *
  * @param list
  */
-void delete_head(Node *list);
+void delete_head(Node** list);
 
 /**
  * 删除尾节点
  *
  * @param list
  */
-void delete_tail(Node *list);
+void delete_tail(Node* list);
 
 /**
  * 根据下标删除
@@ -70,15 +70,15 @@ void delete_tail(Node *list);
  * @param list
  * @param index
  */
-void delete_by_index(Node *list, int index);
+void delete_by_index(Node* list, int index);
 
 /**
  * 根据值删除
  *
  * @param list
- * @param index
+ * @param data
  */
-void delete_by_data(Node *list, DataType index);
+void delete_by_data(Node* list, DataType data);
 
 /**
  * 按下标查找
@@ -87,7 +87,7 @@ void delete_by_data(Node *list, DataType index);
  * @param index
  * @return
  */
-Node get_node_by_index(Node list, int index);
+Node* get_node_by_index(Node* list, int index);
 
 /**
  * 按值查找
@@ -96,7 +96,7 @@ Node get_node_by_index(Node list, int index);
  * @param value
  * @return
  */
-Node get_node_by_value(Node list, DataType value);
+int get_index_by_value(Node* list, DataType value);
 
 /**
  * 判断指定值是否存在
@@ -129,7 +129,7 @@ Node merge(Node one, Node two);
  * @param list
  * @return
  */
-int length(Node list);
+int length(Node *list);
 
 /**
  * 判断链表是否为空
