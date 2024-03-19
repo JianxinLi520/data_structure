@@ -5,7 +5,7 @@
 #ifndef DATA_STRUCTURE_SEQUENCE_LIST_MENU_H
 #define DATA_STRUCTURE_SEQUENCE_LIST_MENU_H
 
-#include "../list/sequence_list.h"
+#include "../src/list/sequence_list.h"
 
 #define SequenceFunctionCount 15
 // 汉字一个占3个字节

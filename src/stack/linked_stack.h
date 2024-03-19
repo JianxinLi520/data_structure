@@ -1,0 +1,8 @@
+//
+// Created by li on 2024/3/19.
+//
+
+#ifndef DATA_STRUCTURE_LINKED_STACK_H
+#define DATA_STRUCTURE_LINKED_STACK_H
+
+#endif //DATA_STRUCTURE_LINKED_STACK_H
