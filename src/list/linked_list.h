@@ -62,7 +62,7 @@ void delete_head(Node** list);
  *
  * @param list
  */
-void delete_tail(Node* list);
+void delete_tail(Node** list);
 
 /**
  * 根据下标删除
@@ -99,20 +99,29 @@ Node* get_node_by_index(Node* list, int index);
 int get_index_by_value(Node* list, DataType value);
 
 /**
+ * 按值查找
+ *
+ * @param list
+ * @param value
+ * @return
+ */
+int get_index_by_value_and_start_index(Node* list, DataType value, int startIndex);
+
+/**
  * 判断指定值是否存在
  *
  * @param list
  * @param value
  * @return
  */
-_Bool contain(Node list, DataType value);
+_Bool contain(Node* list, DataType value);
 
 /**
  * 反转链表
  *
  * @param list
  */
-void converts(Node *list);
+void converts(Node** list);
 
 /**
  * 合并两个链表
@@ -121,7 +130,7 @@ void converts(Node *list);
  * @param two
  * @return
  */
-Node merge(Node one, Node two);
+Node merge(Node* one, Node* two);
 
 /**
  * 获取链表长度
@@ -129,7 +138,7 @@ Node merge(Node one, Node two);
  * @param list
  * @return
  */
-int length(Node *list);
+int length(Node* list);
 
 /**
  * 判断链表是否为空
@@ -137,27 +146,27 @@ int length(Node *list);
  * @param list
  * @return
  */
-_Bool is_empty(Node list);
+_Bool is_empty(Node* list);
 
 /**
  * 删除重复元素
  *
  * @param list
  */
-void remove_duplicate(Node list);
+void remove_duplicate(Node* list);
 
 /**
  * 排序
  *
  * @param list
  */
-void sort(Node *list);
+void sort(Node* list);
 
 /**
  * 展示单链表
  *
  * @param list
  */
-void show_list(Node list);
+void show_list(Node* list);
 
 #endif //LINKED_LIST_H

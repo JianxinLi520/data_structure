@@ -18,4 +18,6 @@ typedef struct double_linked_node{
     struct double_linked_node* next;
 }DoubleLinkedNode;
 
+DoubleLinkedNode* create();
+
 #endif //DOUBLE_LINKED_LIST_H
