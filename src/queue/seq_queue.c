@@ -7,7 +7,7 @@
  * 置空队列
  * @param seqQueue
  */
-void InitQueue(SeqQueue *seqQueue){
+void InitSeqQueue(SeqQueue *seqQueue){
     seqQueue->front = -1;
     seqQueue->rear = -1;
 }
@@ -17,7 +17,7 @@ void InitQueue(SeqQueue *seqQueue){
  * @param seqQueue
  * @return
  */
-int QueueEmpty(SeqQueue *seqQueue){
+int SeqQueueEmpty(SeqQueue *seqQueue){
     if (seqQueue->front == -1){
         return 1;
     }
@@ -29,7 +29,7 @@ int QueueEmpty(SeqQueue *seqQueue){
  * @param seqQueue
  * @return
  */
-int QueueFull(SeqQueue *seqQueue){
+int SeqQueueFull(SeqQueue *seqQueue){
     return seqQueue->front == QueueSize - 1;
 }
 
@@ -38,8 +38,8 @@ int QueueFull(SeqQueue *seqQueue){
  * @param seqQueue
  * @param data
  */
-void Push(SeqQueue *seqQueue, DataType data){
-    if (QueueFull(seqQueue)){
+void SeqQueuePush(SeqQueue *seqQueue, DataType data){
+    if (SeqQueueFull(seqQueue)){
         printf("The SeqQueue Is Full");
         exit(0);
     }
@@ -52,8 +52,8 @@ void Push(SeqQueue *seqQueue, DataType data){
  * @param seqQueue
  * @return
  */
-DataType Pop(SeqQueue *seqQueue){
-    if (QueueEmpty(seqQueue)){
+DataType SeqQueuePop(SeqQueue *seqQueue){
+    if (SeqQueueEmpty(seqQueue)){
         printf("The SeqQueue Is Empty");
         exit(0);
     }
@@ -67,8 +67,8 @@ DataType Pop(SeqQueue *seqQueue){
  * @param seqQueue
  * @return
  */
-DataType GetFront(SeqQueue *seqQueue){
-    if (QueueEmpty(seqQueue)){
+DataType SeqQueueGetFront(SeqQueue *seqQueue){
+    if (SeqQueueEmpty(seqQueue)){
         printf("The SeqQueue Is Empty");
         exit(0);
     }

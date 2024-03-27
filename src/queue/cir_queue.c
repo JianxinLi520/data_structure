@@ -7,7 +7,7 @@
  * 置空队列
  * @param cirQueue
  */
-void InitQueue(CirQueue *cirQueue){
+void InitCirQueue(CirQueue *cirQueue){
     cirQueue->front = -1;
     cirQueue->rear = -1;
 }
@@ -17,7 +17,7 @@ void InitQueue(CirQueue *cirQueue){
  * @param cirQueue
  * @return
  */
-int QueueEmpty(CirQueue *cirQueue){
+int CirQueueEmpty(CirQueue *cirQueue){
     return cirQueue->front == cirQueue->rear;
 }
 
@@ -26,7 +26,7 @@ int QueueEmpty(CirQueue *cirQueue){
  * @param cirQueue
  * @return
  */
-int QueueFull(CirQueue *cirQueue){
+int CirQueueFull(CirQueue *cirQueue){
     return cirQueue->rear - cirQueue->front == -1 || cirQueue->rear - cirQueue->front == QueueSize;
 }
 
@@ -35,8 +35,8 @@ int QueueFull(CirQueue *cirQueue){
  * @param cirQueue
  * @param data
  */
-void Push(CirQueue *cirQueue, DataType data){
-    if (QueueFull(cirQueue)){
+void CirQueuePush(CirQueue *cirQueue, DataType data){
+    if (CirQueueFull(cirQueue)){
         printf("The Queue Is Full");
         exit(0);
     }
@@ -54,8 +54,8 @@ void Push(CirQueue *cirQueue, DataType data){
  * @param cirQueue
  * @return
  */
-DataType Pop(CirQueue *cirQueue){
-    if (QueueEmpty(cirQueue)){
+DataType CirQueuePop(CirQueue *cirQueue){
+    if (CirQueueEmpty(cirQueue)){
         printf("The Queue Is Empty");
         exit(0);
     }
@@ -75,8 +75,8 @@ DataType Pop(CirQueue *cirQueue){
  * @param cirQueue
  * @return
  */
-DataType GetFront(CirQueue *cirQueue){
-    if (QueueEmpty(cirQueue)){
+DataType CirQueueGetFront(CirQueue *cirQueue){
+    if (CirQueueEmpty(cirQueue)){
         printf("The Queue Is Empty");
         exit(0);
     }

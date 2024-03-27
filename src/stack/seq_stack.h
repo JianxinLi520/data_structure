@@ -18,7 +18,7 @@ typedef struct {
  *
  * @param seqStack
  */
-void InitStack(SeqStack *seqStack);
+void InitSeqStack(SeqStack *seqStack);
 
 /**
  * 判栈空
@@ -26,33 +26,33 @@ void InitStack(SeqStack *seqStack);
  * @param seqStack
  * @return
  */
-int StackEmpty(SeqStack *seqStack);
+int SeqStackEmpty(SeqStack *seqStack);
 
 /**
  * 判栈满
  * @param seqStack
  * @return
  */
-int StackFull(SeqStack *seqStack);
+int SeqStackFull(SeqStack *seqStack);
 
 /**
  * 入栈
  * @param seqStack
  * @param data
  */
-void Push(SeqStack *seqStack, DataType data);
+void SeqStackPush(SeqStack *seqStack, DataType data);
 
 /**
  * 出栈
  * @param seqStack
  */
-DataType Pop(SeqStack *seqStack);
+DataType SeqStackPop(SeqStack *seqStack);
 
 /**
  * 获取栈顶元素（但不出栈）
  *
  * @param seqStack
  */
-DataType GetTop(SeqStack *seqStack);
+DataType SeqStackGetTop(SeqStack *seqStack);
 
 #endif //DATA_STRUCTURE_SEQ_STACK_H

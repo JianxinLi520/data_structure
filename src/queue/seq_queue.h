@@ -18,41 +18,41 @@ typedef struct {
  * 置空队列
  * @param seqQueue
  */
-void InitQueue(SeqQueue *seqQueue);
+void InitSeqQueue(SeqQueue *seqQueue);
 
 /**
  * 判空队列
  * @param seqQueue
  * @return
  */
-int QueueEmpty(SeqQueue *seqQueue);
+int SeqQueueEmpty(SeqQueue *seqQueue);
 
 /**
  * 判满队列
  * @param seqQueue
  * @return
  */
-int QueueFull(SeqQueue *seqQueue);
+int SeqQueueFull(SeqQueue *seqQueue);
 
 /**
  * 入队
  * @param seqQueue
  * @param data
  */
-void Push(SeqQueue *seqQueue, DataType data);
+void SeqQueuePush(SeqQueue *seqQueue, DataType data);
 
 /**
  * 出队
  * @param seqQueue
  * @return
  */
-DataType Pop(SeqQueue *seqQueue);
+DataType SeqQueuePop(SeqQueue *seqQueue);
 
 /**
  * 获取队头元素
  * @param seqQueue
  * @return
  */
-DataType GetFront(SeqQueue *seqQueue);
+DataType SeqQueueGetFront(SeqQueue *seqQueue);
 
 #endif //DATA_STRUCTURE_SEQ_QUEUE_H

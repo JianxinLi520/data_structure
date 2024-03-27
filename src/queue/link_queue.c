@@ -7,7 +7,7 @@
  * 置空队列
  * @param linkQueue
  */
-void InitQueue(LinkQueue *linkQueue){
+void InitLinkQueue(LinkQueue *linkQueue){
     QueueNode *queueNode = linkQueue->rear;
     while (queueNode != NULL){
         QueueNode  *freeNode = queueNode;
@@ -22,7 +22,7 @@ void InitQueue(LinkQueue *linkQueue){
  * @param linkQueue
  * @return
  */
-int QueueEmpty(LinkQueue *linkQueue){
+int LinkQueueEmpty(LinkQueue *linkQueue){
     return linkQueue->front == NULL;
 }
 
@@ -31,7 +31,7 @@ int QueueEmpty(LinkQueue *linkQueue){
  * @param linkQueue
  * @param data
  */
-void Push(LinkQueue *linkQueue, DataType data){
+void LinkQueuePush(LinkQueue *linkQueue, DataType data){
     QueueNode *queueNode = malloc((sizeof(QueueNode)));
     queueNode->data = data;
     queueNode->next = NULL;
@@ -44,8 +44,8 @@ void Push(LinkQueue *linkQueue, DataType data){
  * @param linkQueue
  * @return
  */
-DataType Pop(LinkQueue *linkQueue){
-    if (QueueEmpty(linkQueue)){
+DataType LinkQueuePop(LinkQueue *linkQueue){
+    if (LinkQueueEmpty(linkQueue)){
         printf("The Queue Is Empty");
         exit(0);
     }
@@ -61,8 +61,8 @@ DataType Pop(LinkQueue *linkQueue){
  * @param linkQueue
  * @return
  */
-DataType GetFront(LinkQueue *linkQueue){
-    if (QueueEmpty(linkQueue)){
+DataType LinkQueueGetFront(LinkQueue *linkQueue){
+    if (LinkQueueEmpty(linkQueue)){
         printf("The Queue Is Empty");
         exit(0);
     }

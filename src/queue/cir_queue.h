@@ -18,41 +18,41 @@ typedef struct {
  * 置空队列
  * @param cirQueue
  */
-void InitQueue(CirQueue *cirQueue);
+void InitCirQueue(CirQueue *cirQueue);
 
 /**
  * 判空队列
  * @param cirQueue
  * @return
  */
-int QueueEmpty(CirQueue *cirQueue);
+int CirQueueEmpty(CirQueue *cirQueue);
 
 /**
  * 判满队列
  * @param cirQueue
  * @return
  */
-int QueueFull(CirQueue *cirQueue);
+int CirQueueFull(CirQueue *cirQueue);
 
 /**
  * 入队
  * @param cirQueue
  * @param data
  */
-void Push(CirQueue *cirQueue, DataType data);
+void CirQueuePush(CirQueue *cirQueue, DataType data);
 
 /**
  * 出队
  * @param cirQueue
  * @return
  */
-DataType Pop(CirQueue *cirQueue);
+DataType CirQueuePop(CirQueue *cirQueue);
 
 /**
  * 获取队头元素
  * @param cirQueue
  * @return
  */
-DataType GetFront(CirQueue *cirQueue);
+DataType CirQueueGetFront(CirQueue *cirQueue);
 
 #endif //DATA_STRUCTURE_CIR_QUEUE_H

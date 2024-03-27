@@ -1,0 +1,11 @@
+//
+// Created by li on 2024/3/27.
+//
+
+#ifndef DATA_STRUCTURE_LINK_BINARY_TREE_MENU_H
+#define DATA_STRUCTURE_LINK_BINARY_TREE_MENU_H
+
+
+void test();
+
+#endif //DATA_STRUCTURE_LINK_BINARY_TREE_MENU_H

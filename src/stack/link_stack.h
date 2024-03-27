@@ -20,26 +20,26 @@ typedef StackNode LinkStack;
  * @param top
  * @return
  */
-int StackEmpty(LinkStack *top);
+int LinkStackEmpty(LinkStack *top);
 
 /**
  * 入栈
  * @param top
  * @param data
  */
-void Push(StackNode **top, DataType data);
+void LinkStackPush(StackNode **top, DataType data);
 
 /**
  * 出栈
  * @param top
  */
-DataType Pop(LinkStack **top);
+DataType LinkStackPop(LinkStack **top);
 
 /**
  * 获取栈顶元素（但不出栈）
  *
  * @param top
  */
-DataType GetTop(LinkStack *top);
+DataType LinkStackGetTop(LinkStack *top);
 
 #endif //DATA_STRUCTURE_LINK_STACK_H

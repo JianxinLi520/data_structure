@@ -9,7 +9,7 @@
  * @param linkStack
  * @return
  */
-int StackEmpty(LinkStack *top){
+int LinkStackEmpty(LinkStack *top){
     return top == NULL;
 }
 
@@ -18,7 +18,7 @@ int StackEmpty(LinkStack *top){
  * @param top
  * @param data
  */
-void Push(StackNode **top, DataType data){
+void LinkStackPush(StackNode **top, DataType data){
     StackNode *stackNode = malloc(sizeof(StackNode));
     stackNode->data = data;
     stackNode->next = *top;
@@ -29,9 +29,9 @@ void Push(StackNode **top, DataType data){
  * 出栈
  * @param linkStack
  */
-DataType Pop(LinkStack **top){
+DataType LinkStackPop(LinkStack **top){
     StackNode *resultNode = *top;
-    if (StackEmpty(*top)){
+    if (LinkStackEmpty(*top)){
         printf("stack empty \n");
         exit(0);
     } else {
@@ -47,8 +47,8 @@ DataType Pop(LinkStack **top){
  *
  * @param linkStack
  */
-DataType GetTop(LinkStack *top){
-    if (StackEmpty(top)){
+DataType LinkStackGetTop(LinkStack *top){
+    if (LinkStackEmpty(top)){
         printf("stack empty \n");
         exit(0);
     } else {

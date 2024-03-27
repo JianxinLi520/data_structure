@@ -21,34 +21,34 @@ typedef struct {
  * 置空队列
  * @param linkQueue
  */
-void InitQueue(LinkQueue *linkQueue);
+void InitLinkQueue(LinkQueue *linkQueue);
 
 /**
  * 判空队列
  * @param linkQueue
  * @return
  */
-int QueueEmpty(LinkQueue *linkQueue);
+int LinkQueueEmpty(LinkQueue *linkQueue);
 
 /**
  * 入队
  * @param linkQueue
  * @param data
  */
-void Push(LinkQueue *linkQueue, DataType data);
+void LinkQueuePush(LinkQueue *linkQueue, DataType data);
 
 /**
  * 出队
  * @param linkQueue
  * @return
  */
-DataType Pop(LinkQueue *linkQueue);
+DataType LinkQueuePop(LinkQueue *linkQueue);
 
 /**
  * 获取队头元素
  * @param linkQueue
  * @return
  */
-DataType GetFront(LinkQueue *linkQueue);
+DataType LinkQueueGetFront(LinkQueue *linkQueue);
 
 #endif //DATA_STRUCTURE_LINK_QUEUE_H

@@ -7,7 +7,7 @@
  *
  * @param seqStack
  */
-void InitStack(SeqStack *seqStack){
+void InitSeqStack(SeqStack *seqStack){
     seqStack->top = -1;
 }
 
@@ -17,7 +17,7 @@ void InitStack(SeqStack *seqStack){
  * @param seqStack
  * @return
  */
-int StackEmpty(SeqStack *seqStack){
+int SeqStackEmpty(SeqStack *seqStack){
     return seqStack->top == -1;
 }
 
@@ -26,7 +26,7 @@ int StackEmpty(SeqStack *seqStack){
  * @param seqStack
  * @return
  */
-int StackFull(SeqStack *seqStack){
+int SeqStackFull(SeqStack *seqStack){
     return seqStack->top == StackSize - 1;
 }
 
@@ -35,12 +35,12 @@ int StackFull(SeqStack *seqStack){
  * @param seqStack
  * @param data
  */
-void Push(SeqStack *seqStack, DataType data){
-    if (StackFull(seqStack)){
+void SeqStackPush(SeqStack *seqStack, DataType data){
+    if (SeqStackFull(seqStack)){
         printf("stack overflow \n");
     } else {
         seqStack->top = seqStack->top + 1;
-        seqStack->data[seqStack->top] = x;
+        seqStack->data[seqStack->top] = data;
     }
 }
 
@@ -48,8 +48,8 @@ void Push(SeqStack *seqStack, DataType data){
  * 出栈
  * @param seqStack
  */
-DataType Pop(SeqStack *seqStack){
-    if (StackEmpty(seqStack)){
+DataType SeqStackPop(SeqStack *seqStack){
+    if (SeqStackEmpty(seqStack)){
         printf("stack underflow \n");
         exit(0);
     } else {
@@ -63,8 +63,8 @@ DataType Pop(SeqStack *seqStack){
  * @param seqStack
  * @param data
  */
-DataType GetTop(SeqStack *seqStack){
-    if (StackEmpty(seqStack)){
+DataType SeqStackGetTop(SeqStack *seqStack){
+    if (SeqStackEmpty(seqStack)){
         printf("stack underflow \n");
         exit(0);
     } else {
