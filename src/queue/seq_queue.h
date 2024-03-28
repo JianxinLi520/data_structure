@@ -1,17 +1,23 @@
-//
-// 顺序队列
-//
+/**
+ * 顺序队列
+ */
 
 #ifndef DATA_STRUCTURE_SEQ_QUEUE_H
 #define DATA_STRUCTURE_SEQ_QUEUE_H
 
-#define QueueSize 100
+#define SeqQueueSize 100
 #define DataType int
 
+/**
+ * 入队时，rear + 1；
+ * 出队时，front + 1；
+ *
+ * front == rear时队列为空
+ */
 typedef struct {
-    DataType data[QueueSize];
-    int front;  // 队头下标
-    int rear;   // 队尾下标
+    DataType data[SeqQueueSize];
+    int front;  // 队头下标，始终指向队头元素。
+    int rear;   // 队尾下标，始终指向队尾元素的下一个位置。
 }SeqQueue;
 
 /**
@@ -39,14 +45,14 @@ int SeqQueueFull(SeqQueue *seqQueue);
  * @param seqQueue
  * @param data
  */
-void SeqQueuePush(SeqQueue *seqQueue, DataType data);
+void SeqEnQueue(SeqQueue *seqQueue, DataType data);
 
 /**
  * 出队
  * @param seqQueue
  * @return
  */
-DataType SeqQueuePop(SeqQueue *seqQueue);
+DataType SeqDeQueue(SeqQueue *seqQueue);
 
 /**
  * 获取队头元素

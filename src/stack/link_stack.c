@@ -19,7 +19,7 @@ int LinkStackEmpty(LinkStack *top){
  * @param data
  */
 void LinkStackPush(StackNode **top, DataType data){
-    StackNode *stackNode = malloc(sizeof(StackNode));
+    StackNode *stackNode =(StackNode*) malloc(sizeof(StackNode));
     stackNode->data = data;
     stackNode->next = *top;
     *top = stackNode;

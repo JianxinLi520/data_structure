@@ -1,6 +1,8 @@
-//
-// 链队列
-//
+/**
+ * 链队列
+ *
+ * 为了简化处理，在队头结点前增加一个头结点
+ */
 
 #ifndef DATA_STRUCTURE_LINK_QUEUE_H
 #define DATA_STRUCTURE_LINK_QUEUE_H
@@ -18,7 +20,8 @@ typedef struct {
 }LinkQueue;
 
 /**
- * 置空队列
+ * 构造空队列
+ *
  * @param linkQueue
  */
 void InitLinkQueue(LinkQueue *linkQueue);
@@ -35,14 +38,14 @@ int LinkQueueEmpty(LinkQueue *linkQueue);
  * @param linkQueue
  * @param data
  */
-void LinkQueuePush(LinkQueue *linkQueue, DataType data);
+void LinkEnQueue(LinkQueue *linkQueue, DataType data);
 
 /**
  * 出队
  * @param linkQueue
  * @return
  */
-DataType LinkQueuePop(LinkQueue *linkQueue);
+DataType LinkDeQueuePop(LinkQueue *linkQueue);
 
 /**
  * 获取队头元素

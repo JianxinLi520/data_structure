@@ -8,8 +8,8 @@
  * @param cirQueue
  */
 void InitCirQueue(CirQueue *cirQueue){
-    cirQueue->front = -1;
-    cirQueue->rear = -1;
+    cirQueue->front = 0;
+    cirQueue->rear = 0;
 }
 
 /**
@@ -18,16 +18,20 @@ void InitCirQueue(CirQueue *cirQueue){
  * @return
  */
 int CirQueueEmpty(CirQueue *cirQueue){
-    return cirQueue->front == cirQueue->rear;
+    return cirQueue->rear == cirQueue->front;
 }
 
 /**
  * 判满队列
+ *
+ *      如果rear的下一个位置为front，则显示队满。
+ *
+ *      rear指针始终指向NULL。
  * @param cirQueue
  * @return
  */
 int CirQueueFull(CirQueue *cirQueue){
-    return cirQueue->rear - cirQueue->front == -1 || cirQueue->rear - cirQueue->front == QueueSize;
+    return (cirQueue->rear + 1) % QueueSize == cirQueue->front;
 }
 
 /**
@@ -35,18 +39,15 @@ int CirQueueFull(CirQueue *cirQueue){
  * @param cirQueue
  * @param data
  */
-void CirQueuePush(CirQueue *cirQueue, DataType data){
+void CirEnQueue(CirQueue *cirQueue, DataType data){
     if (CirQueueFull(cirQueue)){
         printf("The Queue Is Full");
         exit(0);
-    }
-    if (cirQueue->front == QueueSize - 1){
-        cirQueue->data[0] = data;
-        cirQueue->front = 0;
     } else {
-        cirQueue->data[cirQueue->front + 1] = data;
-        cirQueue->front++;
+        cirQueue->data[cirQueue->rear] = data;
+        cirQueue->rear = (cirQueue->rear + 1) % QueueSize; // 循环意义下的加1
     }
+
 }
 
 /**
@@ -54,18 +55,13 @@ void CirQueuePush(CirQueue *cirQueue, DataType data){
  * @param cirQueue
  * @return
  */
-DataType CirQueuePop(CirQueue *cirQueue){
-    if (CirQueueEmpty(cirQueue)){
+DataType CirDeQueue(CirQueue *cirQueue){
+    if (CirQueueEmpty(cirQueue)) {
         printf("The Queue Is Empty");
         exit(0);
-    }
-    if (cirQueue->rear == QueueSize - 1){
-        DataType result = cirQueue->data[QueueSize - 1];
-        cirQueue->rear = 0;
-        return result;
     } else {
-        DataType result = cirQueue->data[cirQueue->rear];
-        cirQueue->rear++;
+        DataType result = cirQueue->data[cirQueue->front];
+        cirQueue->front = (cirQueue->front + 1) % QueueSize;
         return result;
     }
 }
@@ -79,6 +75,7 @@ DataType CirQueueGetFront(CirQueue *cirQueue){
     if (CirQueueEmpty(cirQueue)){
         printf("The Queue Is Empty");
         exit(0);
+    } else {
+        return cirQueue->data[cirQueue->front];
     }
-    return cirQueue->data[cirQueue->rear];
 }

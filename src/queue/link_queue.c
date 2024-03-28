@@ -5,25 +5,27 @@
 
 /**
  * 置空队列
+ *
+ *      空链队列的头尾指针均指向一个空结点
  * @param linkQueue
  */
 void InitLinkQueue(LinkQueue *linkQueue){
-    QueueNode *queueNode = linkQueue->rear;
-    while (queueNode != NULL){
-        QueueNode  *freeNode = queueNode;
-        queueNode = queueNode->next;
-        free(freeNode);
-    }
-    linkQueue->front = NULL;
+    QueueNode *head = (QueueNode*) malloc(sizeof (QueueNode));
+    head->next = NULL;
+    linkQueue->front = head;
+    linkQueue->rear = head;
 }
 
 /**
  * 判空队列
+ *
+ *      头尾指针指向同一个元素
+ *
  * @param linkQueue
  * @return
  */
 int LinkQueueEmpty(LinkQueue *linkQueue){
-    return linkQueue->front == NULL;
+    return linkQueue->front == linkQueue->rear;
 }
 
 /**
@@ -31,7 +33,7 @@ int LinkQueueEmpty(LinkQueue *linkQueue){
  * @param linkQueue
  * @param data
  */
-void LinkQueuePush(LinkQueue *linkQueue, DataType data){
+void LinkEnQueue(LinkQueue *linkQueue, DataType data){
     QueueNode *queueNode = malloc((sizeof(QueueNode)));
     queueNode->data = data;
     queueNode->next = NULL;
@@ -41,17 +43,21 @@ void LinkQueuePush(LinkQueue *linkQueue, DataType data){
 
 /**
  * 出队
+ *
+ *      队列长度大于1时，只需修改头结点的指针域即可，尾指针不变
+ *      队列长度等于1时，出队时不仅要修改头结点指针域，还需修改尾结点指针域
+ *      为了同时处理上述两种情况，改进出队算法，出队时只修改队头结点。
  * @param linkQueue
  * @return
  */
-DataType LinkQueuePop(LinkQueue *linkQueue){
+DataType LinkDeQueue(LinkQueue *linkQueue){
     if (LinkQueueEmpty(linkQueue)){
         printf("The Queue Is Empty");
         exit(0);
     }
-    QueueNode *rearNode = linkQueue->rear;
+    QueueNode *rearNode = linkQueue->front;
     DataType result = rearNode->data;
-    linkQueue->rear = rearNode->next;
+    linkQueue->front = rearNode->next;
     free(rearNode);
     return result;
 }
